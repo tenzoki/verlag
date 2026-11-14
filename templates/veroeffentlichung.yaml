@@ -1,0 +1,60 @@
+# veroeffentlichung.yaml — die eine Quelle für alle Ausgaben dieser Veröffentlichung.
+# Pfade sind relativ zu dieser Datei. Erzeugt mit /verlag:neu, gelesen von /verlag:bauen.
+
+titel: ""
+untertitel: ""
+autor: ""
+herausgeber: ""            # z. B. "qantr GmbH, Berlin"; erscheint auf Umschlag und Vorschaukarte
+sprache: de                # Sprache des Manuskripts (de, en, ...); bestimmt alle Ausgaben
+stand: ""                  # z. B. "November 2026"
+datum: ""                  # Erscheinungsdatum ISO (2026-11-13), für Website
+manuskript: ""             # Markdown-Datei, z. B. "Claude anwenden.md"
+slug: ""                   # Kurzname ohne Leerzeichen, z. B. "claude-anwenden"; Dateinamen und Website-Pfad
+# fusszeile: "© 2026 Vorname Nachname"   # Fußzeile im PDF; leer = keine; weglassen = mdprint-Standard
+
+ziele:                     # was erzeugt wird
+  pdf: true                # DIN A4
+  website: false           # Artikel auf der Website, mit PDF-Download und Vorschaukarte
+  linkedin: false          # Teaser-Text und Vorschaukarte
+  taschenbuch: false       # KDP Taschenbuch: Innenteil + Druckumschlag
+  ebook: false             # KDP E-Book: EPUB + Titelbild
+
+taschenbuch:
+  format: 6x9              # Zoll, Breite x Höhe
+  papier: weiss            # weiss | creme | farbe | farbe-premium (bestimmt die Rückenbreite)
+  isbn: ""                 # von KDP vergeben oder eigene
+  preis: ""                # Listenpreis amazon.de in EUR
+
+ebook:
+  preis: ""
+  # kapitel_ebene: 3       # ab dieser Überschriftenebene beginnt im Reader eine neue Seite
+
+titelbild:
+  svg: ""                  # z. B. "abbildungen/titelbild.svg"; Regeln: /verlag:titelbild
+  farben:                  # müssen zum Titelbild passen; Rückseite und Vorschaukarte nutzen sie
+    hintergrund: "#1f2933"
+    text: "#ffffff"
+    fliesstext: "#d5dbe1"
+    auszeichnung: "#9db8d6"
+    akzent: "#c98a2b"
+
+# schrift:                 # nur nötig ohne macOS: Schrift für Rückseite, Rücken und Vorschaukarte.
+#   normal: "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"       # Standard: Helvetica Neue aus macOS
+#   fett: "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"    # .ttc-Sammlungen mit Index: "datei.ttc#1"
+#                          # Die Schrift muss auch installiert sein, damit rsvg-convert sie beim Umschlag setzt.
+
+umschlag:
+  dachzeile: ""            # kleine Zeile über der Rückseiten-Überschrift, z. B. "Leitfaden"
+  # cmyk:                  # optionale Feinabstimmung einzelner Farben, Werte in Prozent C M Y K
+  #   "#1f2933": [80, 65, 50, 60]
+
+texte:                     # erzeugt mit /verlag:texte
+  rueckseite: texte/rueckseite.md
+  zusammenfassung: texte/zusammenfassung.md
+  kdp: texte/kdp.md
+  linkedin: texte/linkedin.md
+  website_teaser: texte/website-teaser.md
+
+website:
+  pfad: ""                 # lokaler Ordner der Website (mit README.md und CLAUDE.md, die das Vorgehen beschreiben)
+  url: ""                  # öffentliche Adresse der Artikel, z. B. "https://example.com/writing/"; + <slug>/ ergibt den Link

@@ -1,0 +1,10 @@
+{
+  "name": "verlag",
+  "version": "0.1.0",
+  "description": "Publishing pipeline for Markdown manuscripts: one veroeffentlichung.yaml per publication drives a DIN A4 PDF, a website article with PDF download and preview card, a LinkedIn teaser, a KDP paperback (interior with mirrored margins plus a CMYK wrap cover whose spine width follows the real page count) and a KDP EPUB with cover image. Deterministic steps are scripts (mdprint, bauen.py, umschlag.py) with built-in checks; texts (summary, back cover, KDP description, keywords, categories, LinkedIn teaser) and a new cover motif per publication are skills. Uploads to KDP, the web host and LinkedIn stay manual; /verlag:freigabe writes the checklist. Start with /verlag:veroeffentlichen or /verlag:hilfe.",
+  "author": {
+    "name": "Kai / qantr GmbH"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/tenzoki/verlag"
+}
